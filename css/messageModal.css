@@ -1,0 +1,292 @@
+:root {
+  --blue-1: #2563eb;
+  --blue-2: #0891b2;
+  --muted: #f3f4f6;
+  --input-border: #e5e7eb;
+  --danger: #dc2626;
+}
+
+/* Button */
+
+.conversations {
+  text-align: center;
+  margin-top: 48px;
+}
+.open-btn {
+  background: linear-gradient(90deg, #a3d3ff, #b5e0ff);
+  color: #1d7dc4;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+  margin-bottom: 16px;
+}
+.open-btn:hover {
+  background: linear-gradient(90deg, #75a1cb, #76add4);
+  color: #13588d;
+  border: 1px solid#1d7dc4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.open-btn i {
+  font-size: 18px;
+}
+
+.response-time-contact {
+  color: #6b7280;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.response-time i {
+  font-size: 16px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 22px 30px 18px 30px;
+  border-radius: 8px;
+  width: 360px;
+  max-width: calc(100% - 40px);
+  position: relative;
+  animation: fadeIn 0.18s ease-in-out;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.12);
+  border: 1px solid rgba(15, 23, 42, 0.03);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.close {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #6b7280;
+  line-height: 1;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.close:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+h2 {
+  text-align: center;
+  margin: 4px 0 12px 0;
+  font-size: 18px;
+  color: #000000;
+  font-weight: 600;
+  margin-bottom: 40px;
+  font-weight: bolder;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 11px 20px;
+  margin-top: 5px;
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  outline: none;
+  font-size: 12px;
+  color: #111827;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: #afb4be;
+}
+
+form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.field-row {
+  margin-top: 3px;
+}
+
+.error {
+  color: var(--danger);
+  font-size: 10px;
+  margin-top: 6px;
+  min-height: 6px;
+  text-align: left;
+}
+
+.input-error {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.06);
+}
+
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.cancel-btn,
+.send-btn {
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid transparent;
+  flex: 1;
+}
+
+.cancel-btn {
+  background: #fff;
+  color: #374151;
+  border: 1px solid #e6e9ee;
+}
+
+.cancel-btn:hover {
+  background: #0b8f89;
+}
+
+.send-btn {
+  background: linear-gradient(90deg, var(--blue-1), var(--blue-2));
+  color: white;
+}
+
+.cancel-btn:hover,
+.send-btn:hover {
+  opacity: 0.95;
+}
+
+@media (max-width: 420px) {
+  .modal-content {
+    width: 96%;
+    padding: 16px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+}
+
+/* Improved modal responsiveness for small and medium mobile screens */
+@media (max-width: 768px) {
+  .modal {
+    padding: 12px 14px; /* less inset so content uses more screen space */
+    align-items: flex-end; /* keep modal content near bottom on some phones */
+  }
+
+  .modal-content {
+    width: 100%;
+    max-width: 640px;
+    padding: 18px 16px;
+    border-radius: 10px;
+  }
+
+  h2 {
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  form input,
+  form textarea {
+    font-size: 15px;
+    padding: 12px 14px;
+  }
+
+  .btn-row {
+    margin-top: 18px;
+    gap: 8px;
+  }
+
+  .close {
+    right: 10px;
+    top: 8px;
+    font-size: 20px;
+    padding: 8px;
+  }
+
+  /* Ensure buttons remain tappable and full width if stacked */
+  .cancel-btn,
+  .send-btn {
+    padding: 12px 14px;
+    font-size: 15px;
+  }
+}
+
+/* ================= Toast (temporary success popup) ================= */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%) translateY(12px);
+  background: rgba(17, 24, 39, 0.95);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(2, 6, 23, 0.18);
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4000;
+  transition: opacity 240ms ease, transform 240ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  max-width: calc(100% - 40px);
+  text-align: center;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+/* Success variant (green) */
+.toast.success {
+  background: linear-gradient(90deg, #059669, #10b981);
+  color: white;
+}
+
+@media (max-width: 420px) {
+  .toast {
+    bottom: 18px;
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+}

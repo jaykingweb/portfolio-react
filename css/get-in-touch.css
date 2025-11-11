@@ -1,0 +1,172 @@
+/* Main Layout */
+.get-in-touch {
+  text-align: center;
+  /* margin-top: 5; */
+  padding-bottom: 20px;
+  background: #fff;
+  padding-top: 100px;
+}
+
+.contact-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.contact-cards {
+  /* display: grid; */
+  /* make each card narrower while keeping up to 3 columns */
+  /* grid-template-columns: repeat(3, minmax(280px, 1fr)); */
+  gap: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center; /* center each card inside its grid column */
+}
+
+/* Card Styles */
+.card-contact {
+  background: #f7f9fc;
+  border-radius: 12px;
+  /* slightly increased vertical space to add visual height */
+  padding: 40px 18px;
+  text-align: center;
+  /* softer base shadow */
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  /* max-width: 320px;  */
+  width: 100%;
+  /* min-height: 380px;  */
+}
+
+.card-contact:hover {
+  /* lift + slightly reduced hover lift so it feels balanced */
+  transform: translateY(-10px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+}
+
+.icon-wrapper-contact {
+  /* width: 96px; */
+  /* height: 96px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  /* padding: 8px; */
+}
+
+.icon-wrapper-contact img {
+  width: 80px; /* force a consistent rendered size */
+  height: 80px;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.35s ease;
+  display: block;
+}
+
+/* when card is hovered, slightly lift the icon but remove the box-shadow */
+.card-contact:hover .icon-wrapper-contact img {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Specific adjustments for icon sizes */
+
+.linkedin img {
+  transform: scale(0.8); /* Make email and LinkedIn icons smaller */
+  max-width: 70px;
+  max-height: 70px;
+}
+
+.github img {
+  transform: scale(0.8); /* Make email and LinkedIn icons smaller */
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.email img {
+  transform: scale(0.8);
+  max-width: 70px;
+  max-height: 70px;
+}
+.email,
+.linkedin,
+.github {
+  background: transparent;
+}
+
+/* Text Styles */
+h2 {
+  font-size: 25px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 8px;
+  letter-spacing: 2px;
+}
+
+.subtitle-contact {
+  font-size: 16px;
+  color: #6b7280;
+  /* margin: 0 0 16px; */
+  margin-bottom: 15px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.action-link-contact {
+  display: block;
+  color: #111827;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  text-decoration: none;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.status-contact {
+  color: #6b7280;
+
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.status-contact i {
+  font-size: 14px;
+}
+
+.status-contact span {
+  letter-spacing: 2px;
+}
+
+/* Conversation Button */
+.conversation-wrapper-contact {
+  text-align: center;
+  margin-top: 48px;
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .contact-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+
+  .conversation-btn {
+    width: 100%;
+  }
+}

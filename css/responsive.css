@@ -1,0 +1,484 @@
+/* Responsive-only rules — safe to include without changing desktop layout */
+
+/* Hide the toggle on large screens */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #1a1f36;
+  font-size: 1.35rem;
+  cursor: pointer;
+  padding: 8px;
+  align-self: center;
+}
+
+/* Small refinements for tablet and mobile sizes */
+/* ==================================================
+   responsive.css — mobile/tablet-only overrides
+   Purpose: group responsive rules by top-level section.
+   NOTE: No selectors or values were changed — only comment headers
+         added to make navigation simpler for maintainers.
+   ================================================== */
+
+/* ================= Header / Navigation - base responsive rules ================= */
+/* Hide the toggle on large screens */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #1a1f36;
+  font-size: 1.35rem;
+  cursor: pointer;
+  padding: 8px;
+  align-self: center;
+}
+
+/* ================= Header / Navigation - tablet & small desktop (<=992px) ================= */
+/* Small refinements for tablet and mobile sizes */
+@media (max-width: 992px) {
+  /* show the hamburger */
+  .nav-toggle {
+    display: block;
+  }
+
+  /* make header compact while keeping desktop layout untouched */
+  header.myheads {
+    padding: 10px 4% !important;
+    height: auto;
+  }
+
+  /* Off-canvas / drop-down nav that doesn't affect desktop rules */
+  nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70px; /* below the header */
+    background: rgba(255, 255, 255, 0.98);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.34s ease, opacity 0.34s ease;
+    z-index: 1500;
+  }
+
+  nav.open {
+    max-height: 420px; /* allows multiple links to show */
+    opacity: 1;
+  }
+
+  nav ul {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 8px 4%;
+    align-items: center; /* center items horizontally */
+  }
+
+  nav ul li a {
+    display: block; /* full-width tap area */
+    width: 100%;
+    padding: 14px 0;
+    font-size: 1.05rem;
+    border-radius: 8px;
+    color: #1f2937;
+    text-align: center; /* center the link text */
+    transition: background 0.18s ease, color 0.18s ease;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  }
+
+  nav ul li:last-child a {
+    border-bottom: none;
+  }
+
+  nav ul li a:hover,
+  nav ul li a:focus {
+    background: rgba(37, 99, 235, 0.06);
+    color: #2563eb;
+    outline: none;
+  }
+
+  /* if JS isn't available, allow the menu to wrap instead of breaking layout */
+  .no-js nav ul {
+    flex-wrap: wrap;
+  }
+}
+
+/* ================= Header - small screens (<=768px) ================= */
+/* Ensure the hamburger sits beside the logo on small screens (override any column layout) */
+@media (max-width: 768px) {
+  header.myheads {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 70px !important; /* keep header height so nav.top aligns */
+    gap: 8px !important;
+  }
+
+  /* Ensure logo area doesn't push content; scale logo smaller on mobile */
+  .logo img {
+    width: 72px !important;
+    height: auto !important;
+    margin-top: 6px !important;
+  }
+
+  /* Place toggle next to logo visually */
+  #nav-toggle {
+    order: 2;
+    margin-left: 10px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    order: 1;
+  }
+}
+
+/* ================= Hero & Profile - responsive adjustments (<=768px) ================= */
+@media (max-width: 768px) {
+  :root {
+    /* modest base scaling */
+    font-size: 15px;
+  }
+
+  .hero {
+    padding: 24px 6%;
+    margin-top: 85px;
+  }
+
+  /* Mobile: add extra spacing above and below the profile area so it breathes
+     when stacked on small screens. This applies outside the `.profile-wrapper` div. */
+  .profile-wrapper {
+    margin-top: 18px !important;
+    margin-bottom: 14px !important;
+    padding-left: 6% !important; /* keep profile aligned with page padding */
+    padding-right: 6% !important;
+    box-sizing: border-box !important;
+  }
+
+  .section-title {
+    text-align: center !important;
+  }
+
+  /* Mobile: add side padding to section subtitles for better readability */
+  .section-subtitle {
+    padding: 0 15px !important;
+    box-sizing: border-box !important;
+  }
+
+  h1 {
+    font-size: 2.1rem !important; /* override only for small screens */
+  }
+
+  h2 {
+    font-size: 1.6rem !important;
+  }
+
+  .profile-ring {
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+  .profile-ring img {
+    width: 110px !important;
+    height: 110px !important;
+  }
+
+  .download-resume-btn {
+    padding: 12px 18px;
+    font-size: 0.95rem;
+  }
+
+  /* Ensure sliders keep their horizontal layout; do not stack vertically */
+  .slides-reviews,
+  .slides-reviews-two {
+    flex-wrap: nowrap !important;
+  }
+
+  .review-box,
+  .review-box-two {
+    flex: 0 0 auto !important;
+  }
+
+  /* Prevent large grid min-widths from causing overflow on small screens */
+  .services-container {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    padding: 0 6% !important;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    padding: 0 6% !important;
+  }
+}
+
+/* ================= Work Experience - responsive (<=768px) ================= */
+@media (max-width: 768px) {
+  /* Work Experience: smaller images and fonts for mobile */
+  /* On mobile we want the logo above titles, and the metas below, centered */
+  .company-logo {
+    width: 92px !important; /* slightly larger for visibility */
+    height: auto !important;
+    object-fit: contain;
+    /* margin: 0 0 8px 0 !important; */
+    margin-left: -20px;
+  }
+
+  .card-titles h2 {
+    font-size: 1.05rem !important; /* slightly larger for readability */
+    line-height: 1.25 !important;
+    text-align: left;
+    font-weight: 700;
+    word-spacing: normal;
+    margin-top: -40px;
+  }
+
+  .onls {
+    font-size: 1.02rem !important; /* slightly larger and easier to read */
+    margin-left: 0 !important; /* remove desktop left offset */
+    text-align: left !important;
+    padding: 0 15px !important;
+  }
+
+  /* Improve experience-card layout and prevent overflow */
+  .experience-card {
+    box-sizing: border-box;
+    max-width: 980px;
+    margin: 14px auto !important;
+    padding: 14px 12px !important;
+    overflow: hidden;
+  }
+
+  /* Stack the header area vertically but keep left alignment on mobile */
+  .clause {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 8px !important;
+    padding: 6px 15px !important;
+  }
+
+  .card-headers {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .card-titles {
+    min-width: 0; /* allow flex children to shrink and wrap */
+    width: 100% !important;
+  }
+
+  /* Move card-metas below but keep left aligned */
+  .card-metas {
+    width: 100% !important;
+    text-align: left !important;
+    margin-top: 6px !important;
+    order: 3; /* ensure it sits below header content */
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .date {
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  .remote-tag {
+    display: block !important;
+    margin: 0 !important;
+    text-align: left !important;
+    width: fit-content !important;
+  }
+
+  /* Ensure Fiverr logo aligns with other logos on mobile (override desktop-specific offsets) */
+  .Fiverr .company-logo {
+    width: 92px !important;
+    height: auto !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 12px;
+    object-fit: contain;
+  }
+
+  .card-titles h2 {
+    font-size: 1rem !important;
+    margin: 0 0 6px 0 !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+}
+
+/* ================= Stats & Certificates - responsive (<=768px) ================= */
+@media (max-width: 768px) {
+  /* Summary Stats: tighter layout on mobile */
+  .stat {
+    padding: 20px 6% !important; /* add side margins so stats don't stretch edge-to-edge */
+  }
+
+  .my-stats {
+    gap: 28px !important;
+    font-size: 22px !important;
+    flex-wrap: wrap;
+  }
+
+  .review-stat h3 {
+    font-size: 28px !important;
+  }
+
+  .review-stat h6 {
+    font-size: 12px !important;
+  }
+
+  /* Certificates summary box: add side margins and ensure children wrap on mobile */
+  .stats-box-certificate {
+    margin: 18px 6% !important;
+    box-sizing: border-box;
+    display: flex !important;
+    gap: 12px !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    padding: 12px 14px !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    border-radius: 12px !important;
+  }
+
+  .stats-box-certificate > div {
+    flex: 1 1 30% !important;
+    min-width: 110px !important;
+    text-align: center !important;
+  }
+}
+
+/* ================= Contact Section - responsive (<=768px) ================= */
+@media (max-width: 768px) {
+  .contact-cards {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch;
+    gap: 18px !important;
+  }
+
+  .card-contact {
+    padding: 20px 14px !important;
+  }
+
+  .card-contact h2 {
+    text-align: center;
+  }
+
+  .icon-wrapper-contact img {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .contact-icon {
+    width: 96px !important;
+    height: 96px !important;
+  }
+
+  .conversation-btn-contact {
+    width: 100% !important;
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+  }
+}
+
+/* ================= Footer - responsive (<=768px) ================= */
+@media (max-width: 768px) {
+  /* Compact footer on mobile: reduce paddings and vertical spacing */
+  .footer {
+    padding: 18px 12px !important;
+  }
+
+  .footer-container {
+    display: block !important;
+    padding: 0 12px !important;
+    gap: 14px !important;
+  }
+
+  .footer-container > div {
+    margin-bottom: 10px !important;
+    padding: 6px 0 !important;
+  }
+
+  footer hr {
+    margin: 10px 0 !important;
+  }
+
+  .footer-bottom {
+    padding: 8px 12px !important;
+    text-align: center !important;
+  }
+
+  .footer-about p,
+  .footer-links p,
+  .footer-connect p,
+  .footer-about h2,
+  .footer-links h3,
+  .footer-connect h3 {
+    margin: 6px 0 !important;
+  }
+}
+
+/* ================= Small screens - tight adjustments (<=480px) ================= */
+/* Tight mobile sizing but keep reviews horizontal and readable */
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 18px 5%;
+  }
+
+  h1 {
+    font-size: 1.9rem !important;
+  }
+
+  h2 {
+    font-size: 1.25rem !important;
+  }
+
+  nav.open {
+    max-height: 360px;
+  }
+
+  /* make sure buttons and links remain tappable */
+  nav ul li a {
+    padding: 12px 14px;
+    font-size: 1rem;
+  }
+
+  .download-resume-btn {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ================= Utilities / no-js / accessibility tweaks ================= */
+/* Utility: when JS not available, expose nav in a simple stacked form */
+.no-js nav {
+  position: static;
+  max-height: none;
+  opacity: 1;
+}
+
+/* Make sure the hamburger icon visually toggles (JS will update aria-expanded and icon) */
+.nav-toggle:focus {
+  outline: 2px solid rgba(37, 99, 235, 0.2);
+  border-radius: 8px;
+}
