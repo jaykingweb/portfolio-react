@@ -69,8 +69,8 @@ function setFormLoading(isLoading) {
 
 // Handle Form Submission
 // Config: Formspree endpoint (set by user)
-// Using Formspree endpoint provided by user: https://formspree.io/f/xkgpogvz
-const EMAIL_ENDPOINT = "https://formspree.io/f/xkgpogvz"; // <-- posts form data to Formspree
+// Using Formspree endpoint provided by user: https://formspree.io/f/xjkjedlr
+const EMAIL_ENDPOINT = "https://formspree.io/f/xjkjedlr"; // <-- posts form data to Formspree
 
 document
   .getElementById("contactForm")
